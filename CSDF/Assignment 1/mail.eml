@@ -1,0 +1,439 @@
+Delivered-To: pranavjaju45@gmail.com
+Received: by 2002:a05:7108:7692:b0:3a2:719e:bf5f with SMTP id w18csp1661638gdt;
+        Thu, 15 Aug 2024 10:19:28 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGpLzW/sEZlNElPW7ANe9bZ6eFyGCwIXj8QtShebQrwxlCQzQDbwOTZwvah+QK4nrEkBasA
+X-Received: by 2002:a05:620a:2409:b0:79d:21de:f80e with SMTP id af79cd13be357-7a5069d3ff8mr37226785a.56.1723742368083;
+        Thu, 15 Aug 2024 10:19:28 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1723742368; cv=none;
+        d=google.com; s=arc-20160816;
+        b=oE/rclephNHId22hSPnkO0gHeUK9Z+0gGZnbxqVUo9FqLqf965MvxKP4RTZg+ayw6d
+         383KMi9qg7CHCGmTa+hLE3o3CQc3PXRHPkcx2UZi87YiSV1ZPllZPcVkqjO98hkEASIc
+         FSis4f9/fTFfDakP/8o7dVDHmGtzpPBuFAQO4EIc4qOnBT+cfilM0NqjHAKCm5WAdVVp
+         8Q3C3N45ufTMDCgeAma6TblRlyBBDbmVYlvD79MmyiNcI3NY8m6jlHCb5AVV+cX4EF+E
+         bagZ47BblAGMQkLxjAz1HQxB4zPqPAbVhTJ8TKM1pz0lAVXzVHMzBDBlX6UfpMYfGmC6
+         HJBw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:from:to:cc:subject:date:message-id:list-archive
+         :precedence:list-post:list-id:list-unsubscribe:list-unsubscribe-post
+         :dkim-signature;
+        bh=+KocmW6kdXL0Kb5uNBKIPMRbiHcKCqRB6LjcGRtoN98=;
+        fh=Jx7xvi7QhqXulXwPr8iFi6o1FhCq5xpdh99iF/rtrI4=;
+        b=WdkKMvAhivOXIrpFd3wnJK1bVgpF41lAIjWKxq9NDx+plEQVEzzrxGDmjryI663dqR
+         vGaCQqjha+mIf/mSS+lP2vqXUbYTN4bLWv9yoY2vVSfe/qx5Tfgbh5LVO4f3x8DyMd4w
+         aHcLGhUwoNWuwM6VZVAs+GTO1yk9FtpDgZQa+Hj3891XbQRmvQI6GGKYNiZMzhtNb1Tf
+         jy3COY6fXGfzMzDU34CMe0+QRFCZNsv7LqiQJ3oE5+Id6yq10gBCfjazyXUitU0AiHO6
+         PalMCOn0Nxh+RowR+/SazY3gChRed8PQuHyr9X5kXT3FbsPjdjEcnryKGgQqkSYRpI8h
+         oU8Q==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@github.com header.s=pf2023 header.b=isiKtEwe;
+       spf=none (google.com: noreply.github.com does not designate permitted sender hosts) smtp.mailfrom=noreply@noreply.github.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=github.com
+Return-Path: <noreply@noreply.github.com>
+Received: from out-27.smtp.github.com (out-27.smtp.github.com. [192.30.252.210])
+        by mx.google.com with UTF8SMTPS id af79cd13be357-7a4ff0b7f6bsi212733685a.306.2024.08.15.10.19.28
+        for <pranavjaju45@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 15 Aug 2024 10:19:28 -0700 (PDT)
+Received-SPF: none (google.com: noreply.github.com does not designate permitted sender hosts) client-ip=192.30.252.210;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@github.com header.s=pf2023 header.b=isiKtEwe;
+       spf=none (google.com: noreply.github.com does not designate permitted sender hosts) smtp.mailfrom=noreply@noreply.github.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=github.com
+Received: from localhost (hubbernetes-node-e33a35c.ash1-iad.github.net [10.56.178.15])
+	by smtp.github.com (Postfix) with UTF8SMTPSA id DB1C36012FC
+	for <pranavjaju45@gmail.com>; Thu, 15 Aug 2024 10:19:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=github.com;
+	s=pf2023; t=1723742367;
+	bh=+KocmW6kdXL0Kb5uNBKIPMRbiHcKCqRB6LjcGRtoN98=;
+	h=List-Unsubscribe-Post:List-Unsubscribe:List-Id:List-Post:
+	 List-Archive:Date:Subject:Cc:To:From:From;
+	b=isiKtEweSU43M4oylJ7cF870rTo81aWUvXJeuDujGjN/napIEeNtSC4O9boXIlXD8
+	 CXkbHtKAiG2pCHlb8O5HOOYpuIi79LYniQBG/ex7kN16CIF+Oa6JAt2JfCR1KvFANt
+	 6g1oYxif88WDOOLTvJGCSZwVNbI0ibFGs2UCchOU=
+Content-Type: multipart/alternative;
+ boundary="part_18629b6ad927566b6a7ca398ab668638bc99e2e8204b8cc064d37a2c7428c7f0"; charset=UTF-8
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+List-Unsubscribe: <https://github.com/notifications/unsubscribe/one-click/AYAARKEXSGK2XFM3GU55HWDZRTPJ7A5HORZGSZ3HMVZLIY3POBUWY33UL5TG64S7MJ2XG2LOMVZXHJTUN5YGSY3TSGBKI5DZOBS2Y33SM5QW42L2MF2GS33OUV3GC3DVMWUDOMBQGI2DSNZQVRZXKYTKMVRXIX3UPFYGLWQAEJGWK3LCMVZEMZLBOR2XEZKSMVYXKZLTOQ5DUTTPORUWM2LDMF2GS33O>
+List-Id: PranavJaju <PranavJaju.PranavJaju.github.com>
+List-Post: noreply@github.com
+Precedence: list
+List-Archive: https://github.com/PranavJaju
+Message-Id: <PICT-ACM-Student-Chapter/feature_requests/copilot_for_business@github.com>
+Date: Thu, 15 Aug 2024 10:19:27 -0700
+X-Github-Recipient: PranavJaju
+X-Github-Reason: member_feature_requested
+Subject: [PICT ACM Student Chapter] New requests from members for Copilot
+ Business
+Cc: "Member feature requested" <member_feature_requested@noreply.github.com>
+To: "Pranav Jaju" <pranavjaju45@gmail.com>
+From: "GitHub" <noreply@noreply.github.com>
+Mime-Version: 1.0
+
+--part_18629b6ad927566b6a7ca398ab668638bc99e2e8204b8cc064d37a2c7428c7f0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+
+You have 23 new requests from members for Copilot Business.
+
+23 members of your PICT ACM Student Chapter organization have requested acc=
+ess to Copilot Business since you last reviewed requests from members.
+Learn more about Copilot Business (https://docs.github.com/copilot/overview=
+-of-github-copilot/about-github-copilot-for-business)
+
+Research has found GitHub Copilot helps 96% of developers code faster, 88% =
+feel more productive, and 74% feel more fulfilled at work.
+
+Review requests from members https://github.com/organizations/PICT-ACM-Stud=
+ent-Chapter/settings/member_feature_requests#copilot_for_business.
+
+
+--=20
+View it on GitHub: https://github.com/organizations/PICT-ACM-Student-Chapte=
+r/settings/member_feature_requests
+Unsubscribe from this thread: https://github.com/notifications/unsubscribe-=
+auth/AYAARKHKWKJLSLATNN3ONKDZRTPJ7A5HORZGSZ3HMVZLIY3POBUWY33UL5TG64S7MJ2XG2=
+LOMVZXHJTUN5YGSY3TSGBKI5DZOBS2Y33SM5QW42L2MF2GS33OUV3GC3DVMWUDOMBQGI2DSNZQV=
+RZXKYTKMVRXIX3UPFYGLWQAEJGWK3LCMVZEMZLBOR2XEZKSMVYXKZLTOQ5DUTTPORUWM2LDMF2G=
+S33O
+You are receiving this because you are subscribed to this thread
+
+Message ID: <PICT-ACM-Student-Chapter/feature_requests/copilot_for_business=
+@github.com>
+
+--part_18629b6ad927566b6a7ca398ab668638bc99e2e8204b8cc064d37a2c7428c7f0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=utf-8
+
+<!doctype html><html lang=3D"en"><head><meta charset=3D"utf-8"><meta name=
+=3D"viewport" content=3D"width=3Ddevice-width"><title>[PICT ACM Student Cha=
+pter] New requests from members for Copilot Business</title></head><body><h=
+tml><body style=3D"box-sizing: border-box; font-family: -apple-system,Blink=
+MacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe U=
+I Emoji; font-size: 14px; line-height: 1.5; color: #24292e; background-colo=
+r: #fff; margin: 0" bgcolor=3D"#fff"><table align=3D"center" class=3D"conta=
+iner-sm width-full" width=3D"100%" style=3D"box-sizing: border-box; border-=
+spacing: 0; border-collapse: collapse; max-width: 544px; margin-right: auto=
+; margin-left: auto; width: 100% !important; font-family: -apple-system,Bli=
+nkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe=
+ UI Emoji !important"><tr style=3D"box-sizing: border-box; font-family: -ap=
+ple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Col=
+or Emoji,Segoe UI Emoji !important"><td class=3D"center p-3" align=3D"cente=
+r valign=3Dtop style=3Dbox-sizing: border-box; font-family: -apple-system,B=
+linkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Seg=
+oe UI Emoji !important; padding: 16px"><center style=3D"box-sizing: border-=
+box; font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial=
+,sans-serif,Apple Color Emoji,Segoe UI Emoji !important"><table border=3D"0=
+" cellspacing=3D"0" cellpadding=3D"0" align=3D"center" class=3D"width-full =
+container-md width=3D100% style=3Dbox-sizing: border-box; border-spacing: 0=
+; border-collapse: collapse; max-width: 768px; margin-right: auto; margin-l=
+eft: auto; width: 100% !important; font-family: -apple-system,BlinkMacSyste=
+mFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji =
+!important"><tr style=3D"box-sizing: border-box; font-family: -apple-system=
+,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,S=
+egoe UI Emoji !important"><td align=3Dcenter style=3D"box-sizing: border-bo=
+x; font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,s=
+ans-serif,Apple Color Emoji,Segoe UI Emoji !important; padding: 0"><table s=
+tyle=3D"box-sizing: border-box; border-spacing: 0; border-collapse: collaps=
+e; font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,s=
+ans-serif,Apple Color Emoji,Segoe UI Emoji !important"><tbody style=3D"box-=
+sizing: border-box; font-family: -apple-system,BlinkMacSystemFont,Segoe UI,=
+Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji !important"><tr=
+ style=3D"box-sizing: border-box; font-family: -apple-system,BlinkMacSystem=
+Font,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji !=
+important"><td height=3D"16" style=3D"font-size: 16px; line-height: 16px; b=
+ox-sizing: border-box; font-family: -apple-system,BlinkMacSystemFont,Segoe =
+UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji !important; =
+padding: 0"><br></td></tr></tbody></table><table border=3D"0" cellspacing=
+=3D"0" cellpadding=3D"0" align=3D"left" width=3D"100%" style=3D"box-sizing:=
+ border-box; border-spacing: 0; border-collapse: collapse; font-family: -ap=
+ple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Col=
+or Emoji,Segoe UI Emoji !important"><tr style=3D"box-sizing: border-box; fo=
+nt-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-s=
+erif,Apple Color Emoji,Segoe UI Emoji !important"><td class=3D"text-center"=
+ style=3D"box-sizing: border-box; text-align: center !important; font-famil=
+y: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,App=
+le Color Emoji,Segoe UI Emoji !important; padding: 0" align=3D"center"><img=
+ src=3D"https://github.com/images/email/global/octocat-logo.png" alt=3D"Git=
+Hub" width=3D"32" style=3D"box-sizing: border-box; font-family: -apple-syst=
+em,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji=
+,Segoe UI Emoji !important; border-style: none"><h2 class=3D"lh-condensed m=
+t-2 text-normal" style=3D"box-sizing: border-box; margin-top: 8px !importan=
+t; margin-bottom: 20px; font-size: 24px; font-weight: 400 !important; line-=
+height: 1.25 !important; font-family: -apple-system,BlinkMacSystemFont,Sego=
+e UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji !important=
+">You have 23 new requests from members for Copilot Business.</h2></td></tr=
+></table><table style=3D"box-sizing: border-box; border-spacing: 0; border-=
+collapse: collapse; font-family: -apple-system,BlinkMacSystemFont,Segoe UI,=
+Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji !important"><tb=
+ody style=3D"box-sizing: border-box; font-family: -apple-system,BlinkMacSys=
+temFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoj=
+i !important"><tr style=3D"box-sizing: border-box; font-family: -apple-syst=
+em,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji=
+,Segoe UI Emoji !important"><td height=3D"16" style=3D"font-size: 16px; lin=
+e-height: 16px; box-sizing: border-box; font-family: -apple-system,BlinkMac=
+SystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI E=
+moji !important; padding: 0"><br></td></tr></tbody></table></td></tr></tabl=
+e><table width=3D"100%" class=3D"width-full" style=3D"box-sizing: border-bo=
+x; border-spacing: 0; border-collapse: collapse; width: 100% !important; fo=
+nt-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-s=
+erif,Apple Color Emoji,Segoe UI Emoji !important"><tr style=3D"box-sizing: =
+border-box; font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetic=
+a,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji !important"><td class=
+=3D"border rounded-2 d-block" style=3D"box-sizing: border-box; border-radiu=
+s: 6px !important; display: block !important; font-family: -apple-system,Bl=
+inkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Sego=
+e UI Emoji !important; padding: 0; border: 1px solid #e1e4e8"><table align=
+=3D"center" class=3D"width-full text-center" style=3D"box-sizing: border-bo=
+x; border-spacing: 0; border-collapse: collapse; width: 100% !important; te=
+xt-align: center !important; font-family: -apple-system,BlinkMacSystemFont,=
+Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji !impor=
+tant"><tr style=3D"box-sizing: border-box; font-family: -apple-system,Blink=
+MacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe U=
+I Emoji !important"><td class=3D"p-3 p-sm-4" style=3D"box-sizing: border-bo=
+x; font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,s=
+ans-serif,Apple Color Emoji,Segoe UI Emoji !important; padding: 24px"><tabl=
+e border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center" class=
+=3D"width-full" width=3D"100%" style=3D"box-sizing: border-box; border-spac=
+ing: 0; border-collapse: collapse; width: 100% !important; font-family: -ap=
+ple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Col=
+or Emoji,Segoe UI Emoji !important"><tr style=3D"box-sizing: border-box; fo=
+nt-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-s=
+erif,Apple Color Emoji,Segoe UI Emoji !important"><td align=3D"center" styl=
+e=3D"box-sizing: border-box; font-family: -apple-system,BlinkMacSystemFont,=
+Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji !impor=
+tant; padding: 0"><p style=3D"box-sizing: border-box; margin-top: 5px; marg=
+in-bottom: 10px; font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Hel=
+vetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji !important"><svg h=
+eight=3D"36" aria-hidden=3D"true" viewBox=3D"0 0 24 24" version=3D"1.1" wid=
+th=3D"36" data-view-component=3D"true" class=3D"octicon octicon-copilot col=
+or-fg-muted">
+                                    <path d=3D"M9.75 14a.75.75 0 0 1 .75.75=
+v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 .75-.75Zm4.5 0a.75.75 0 0 1 .75.7=
+5v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 .75-.75Z"></path>
+                                    <path d=3D"M12 2c2.214 0 4.248.657 5.74=
+7 1.756.136.099.268.204.397.312.584.235 1.077.546 1.474.952.85.869 1.132 2.=
+037 1.132 3.368 0 .368-.014.733-.052 1.086l.633 1.478.043.022A4.75 4.75 0 0=
+ 1 24 15.222v1.028c0 .529-.309.987-.565 1.293-.28.336-.636.653-.966.918a13.=
+84 13.84 0 0 1-1.299.911l-.024.015-.006.004-.039.025c-.223.135-.45.264-.68.=
+386-.46.245-1.122.571-1.941.895C16.845 21.344 14.561 22 12 22c-2.561 0-4.84=
+5-.656-6.479-1.303a19.046 19.046 0 0 1-1.942-.894 14.081 14.081 0 0 1-.535-=
+.3l-.144-.087-.04-.025-.006-.004-.024-.015a13.16 13.16 0 0 1-1.299-.911 6.9=
+13 6.913 0 0 1-.967-.918C.31 17.237 0 16.779 0 16.25v-1.028a4.75 4.75 0 0 1=
+ 2.626-4.248l.043-.022.633-1.478a10.195 10.195 0 0 1-.052-1.086c0-1.331.282=
+-2.498 1.132-3.368.397-.406.89-.717 1.474-.952.129-.108.261-.213.397-.312C7=
+.752 2.657 9.786 2 12 2Zm-8 9.654v6.669a17.59 17.59 0 0 0 2.073.98C7.595 19=
+.906 9.686 20.5 12 20.5c2.314 0 4.405-.594 5.927-1.197a17.59 17.59 0 0 0 2.=
+073-.98v-6.669l-.038-.09c-.046.061-.095.12-.145.177-.793.9-2.057 1.259-3.78=
+2 1.259-1.59 0-2.738-.544-3.508-1.492a4.323 4.323 0 0 1-.355-.508h-.344a4.3=
+23 4.323 0 0 1-.355.508C10.704 12.456 9.555 13 7.965 13c-1.725 0-2.989-.359=
+-3.782-1.259a3.026 3.026 0 0 1-.145-.177Zm6.309-1.092c.445-.547.708-1.334.8=
+51-2.301.057-.357.087-.718.09-1.079v-.031c-.001-.762-.166-1.26-.43-1.568l-.=
+008-.01c-.341-.391-1.046-.689-2.533-.529-1.505.163-2.347.537-2.824 1.024-.4=
+62.473-.705 1.18-.705 2.32 0 .605.044 1.087.135 1.472.092.384.231.672.423.8=
+9.365.413 1.084.75 2.657.75.91 0 1.527-.223 1.964-.564.14-.11.268-.235.38-.=
+374Zm2.504-2.497c.136 1.057.403 1.913.878 2.497.442.545 1.134.938 2.344.938=
+ 1.573 0 2.292-.337 2.657-.751.384-.435.558-1.151.558-2.361 0-1.14-.243-1.8=
+47-.705-2.319-.477-.488-1.318-.862-2.824-1.025-1.487-.161-2.192.139-2.533.5=
+29-.268.308-.437.808-.438 1.578v.02c.002.299.023.598.063.894Z"></path>
+                                  </svg></p><p style=3D"box-sizing: border-=
+box; margin-top: 20px; margin-bottom: 10px; font-family: -apple-system,Blin=
+kMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe =
+UI Emoji !important"><strong style=3D"font-size: 20px; font-weight: 600; bo=
+x-sizing: border-box; font-family: -apple-system,BlinkMacSystemFont,Segoe U=
+I,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji !important">M=
+embers of your PICT ACM Student Chapter organization want Copilot Business<=
+/strong></p><p style=3D"box-sizing: border-box; margin-top: 20px; margin-bo=
+ttom: 10px; font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetic=
+a,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji !important">23 members =
+of your <strong style=3D"font-weight: 600; box-sizing: border-box; font-fam=
+ily: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,A=
+pple Color Emoji,Segoe UI Emoji !important">PICT-ACM-Student-Chapter</stron=
+g> organization have requested access to Copilot Business since you last re=
+viewed requests from members. <a href=3D"https://docs.github.com/copilot/ov=
+erview-of-github-copilot/about-github-copilot-for-business">Learn more abou=
+t Copilot Business</a></p><p style=3D"box-sizing: border-box; margin-top: 1=
+5px; margin-bottom: 10px; font-family: -apple-system,BlinkMacSystemFont,Seg=
+oe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji !importan=
+t">Research has found GitHub Copilot helps <strong style=3D"font-weight: 60=
+0; box-sizing: border-box; font-family: -apple-system,BlinkMacSystemFont,Se=
+goe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji !importa=
+nt">96%</strong> of developers code faster, <strong style=3D"font-weight: 6=
+00; box-sizing: border-box; font-family: -apple-system,BlinkMacSystemFont,S=
+egoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji !import=
+ant">88%</strong> feel more productive, and <strong style=3D"font-weight: 6=
+00; box-sizing: border-box; font-family: -apple-system,BlinkMacSystemFont,S=
+egoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji !import=
+ant">74%</strong> feel more fulfilled at work.</p><table border=3D"0" cells=
+pacing=3D"0" cellpadding=3D"0" align=3D"center" class=3D"width-full" width=
+=3D"100%" style=3D"box-sizing: border-box; border-spacing: 0; border-collap=
+se: collapse; width: 100% !important; margin-top: 20px; font-family: -apple=
+-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color =
+Emoji,Segoe UI Emoji !important"><tr style=3D"box-sizing: border-box; font-=
+family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-seri=
+f,Apple Color Emoji,Segoe UI Emoji !important"><td align=3D"center" style=
+=3D"box-sizing: border-box; font-family: -apple-system,BlinkMacSystemFont,S=
+egoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji !import=
+ant; padding: 0"><table width=3D"100%" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" style=3D"box-sizing: border-box; border-spacing: 0; border-col=
+lapse: collapse; font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Hel=
+vetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji !important"><tr st=
+yle=3D"box-sizing: border-box; font-family: -apple-system,BlinkMacSystemFon=
+t,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji !imp=
+ortant"><td style=3D"box-sizing: border-box; font-family: -apple-system,Bli=
+nkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe=
+ UI Emoji !important; padding: 0"><table border=3D"0" cellspacing=3D"0" cel=
+lpadding=3D"0" width=3D"100%" style=3D"box-sizing: border-box; border-spaci=
+ng: 0; border-collapse: collapse; font-family: -apple-system,BlinkMacSystem=
+Font,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji !=
+important"><tr style=3D"box-sizing: border-box; font-family: -apple-system,=
+BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Se=
+goe UI Emoji !important"><td align=3D"center" style=3D"box-sizing: border-b=
+ox; font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,=
+sans-serif,Apple Color Emoji,Segoe UI Emoji !important; padding: 0"><a href=
+=3Dhttps://github.com/organizations/PICT-ACM-Student-Chapter/settings/membe=
+r_feature_requests#copilot_for_business target=3D"_blank" rel=3D"noopener n=
+oreferrer" class=3D"btn btn-primary btn-large" style=3D"background-color: #=
+1f883d !important; box-sizing: border-box; color: #fff; text-decoration: no=
+ne; position: relative; display: inline-block; font-size: inherit; font-wei=
+ght: 500; line-height: 1.5; white-space: nowrap; vertical-align: middle; cu=
+rsor: pointer; -webkit-user-select: none; user-select: none; border-radius:=
+ .5em; -webkit-appearance: none; appearance: none; box-shadow: 0 1px 0 rgba=
+(27,31,35,.1),inset 0 1px 0 rgba(255,255,255,.03); transition: background-c=
+olor .2s cubic-bezier(0.3, 0, 0.5, 1); font-family: -apple-system,BlinkMacS=
+ystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Em=
+oji !important; padding: .75em 1.5em; border: 1px solid #1f883d">Review req=
+uests from members</a></td></tr></table></td></tr></table></td></tr></table=
+><table style=3D"box-sizing: border-box; border-spacing: 0; border-collapse=
+: collapse; font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetic=
+a,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji !important"><tbody styl=
+e=3D"box-sizing: border-box; font-family: -apple-system,BlinkMacSystemFont,=
+Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji !impor=
+tant"><tr style=3D"box-sizing: border-box; font-family: -apple-system,Blink=
+MacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe U=
+I Emoji !important"><td height=3D"16" style=3D"font-size: 16px; line-height=
+: 16px; box-sizing: border-box; font-family: -apple-system,BlinkMacSystemFo=
+nt,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji !im=
+portant; padding: 0"><br></td></tr></tbody></table></td></tr></table></td><=
+/tr></table></td></tr></table><table border=3D"0" cellspacing=3D"0" cellpad=
+ding=3D"0" align=3D"center" class=3D"width-full text-center" width=3D"100%"=
+ style=3D"box-sizing: border-box; border-spacing: 0; border-collapse: colla=
+pse; width: 100% !important; text-align: center !important; font-family: -a=
+pple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Co=
+lor Emoji,Segoe UI Emoji !important"><tr style=3D"box-sizing: border-box; f=
+ont-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-=
+serif,Apple Color Emoji,Segoe UI Emoji !important"><td align=3D"center" sty=
+le=3D"box-sizing: border-box; font-family: -apple-system,BlinkMacSystemFont=
+,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji !impo=
+rtant; padding: 0"><table style=3D"box-sizing: border-box; border-spacing: =
+0; border-collapse: collapse; font-family: -apple-system,BlinkMacSystemFont=
+,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji !impo=
+rtant"><tbody style=3D"box-sizing: border-box; font-family: -apple-system,B=
+linkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Seg=
+oe UI Emoji !important"><tr style=3D"box-sizing: border-box; font-family: -=
+apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple C=
+olor Emoji,Segoe UI Emoji !important"><td height=3D"16" style=3D"font-size:=
+ 16px; line-height: 16px; box-sizing: border-box; font-family: -apple-syste=
+m,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,=
+Segoe UI Emoji !important; padding: 0"><br></td></tr></tbody></table><table=
+ style=3D"box-sizing: border-box; border-spacing: 0; border-collapse: colla=
+pse; font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial=
+,sans-serif,Apple Color Emoji,Segoe UI Emoji !important"><tbody style=3D"bo=
+x-sizing: border-box; font-family: -apple-system,BlinkMacSystemFont,Segoe U=
+I,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji !important"><=
+tr style=3D"box-sizing: border-box; font-family: -apple-system,BlinkMacSyst=
+emFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji=
+ !important"><td height=3D"16" style=3D"font-size: 16px; line-height: 16px;=
+ box-sizing: border-box; font-family: -apple-system,BlinkMacSystemFont,Sego=
+e UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji !important=
+; padding: 0"><br></td></tr></tbody></table><p class=3D"f5 color-bg-subtle"=
+ style=3D"box-sizing: border-box; margin-top: 0; margin-bottom: 10px; color=
+: #6a737d !important; font-size: 14px !important; font-family: -apple-syste=
+m,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,=
+Segoe UI Emoji !important"><a href=3Dhttps://github.com/login target=3D"_bl=
+ank" rel=3D"noopener noreferrer" style=3D"background-color: transparent; bo=
+x-sizing: border-box; color: #0366d6; text-decoration: none; font-family: -=
+apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple C=
+olor Emoji,Segoe UI Emoji !important">Sign in to GitHub
+</a>=E3=83=BB
+<a href=3Dhttps://github.com/organizations/PICT-ACM-Student-Chapter/setting=
+s/member_feature_requests target=3D"_blank" rel=3D"noopener noreferrer" sty=
+le=3D"background-color: transparent; box-sizing: border-box; color: #0366d6=
+; text-decoration: none; font-family: -apple-system,BlinkMacSystemFont,Sego=
+e UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji !important=
+">Notifications settings</a><br style=3D"box-sizing: border-box; font-famil=
+y: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,App=
+le Color Emoji,Segoe UI Emoji !important"><br style=3D"box-sizing: border-b=
+ox; font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,=
+sans-serif,Apple Color Emoji,Segoe UI Emoji !important">You are receiving t=
+his email because members of your organization have requested access to spe=
+cific GitHub features.</p></td></tr></table><table border=3D"0" cellspacing=
+=3D"0" cellpadding=3D"0" align=3D"center" class=3D"width-full" text-center =
+width=3D"100%" style=3D"box-sizing: border-box; border-spacing: 0; border-c=
+ollapse: collapse; width: 100% !important; text-align: center !important; f=
+ont-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-=
+serif,Apple Color Emoji,Segoe UI Emoji !important"><tr style=3D"box-sizing:=
+ border-box; font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helveti=
+ca,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji !important"><td align=
+=3D"center" style=3D"box-sizing: border-box; font-family: -apple-system,Bli=
+nkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe=
+ UI Emoji !important; padding: 0"><table style=3D"box-sizing: border-box; b=
+order-spacing: 0; border-collapse: collapse; font-family: -apple-system,Bli=
+nkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe=
+ UI Emoji !important"><tbody style=3D"box-sizing: border-box; font-family: =
+-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple =
+Color Emoji,Segoe UI Emoji !important"><tr style=3D"box-sizing: border-box;=
+ font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,san=
+s-serif,Apple Color Emoji,Segoe UI Emoji !important"><td height=3D"16" styl=
+e=3D"font-size: 16px; line-height: 16px; box-sizing: border-box; font-famil=
+y: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,App=
+le Color Emoji,Segoe UI Emoji !important; padding: 0"><br></td></tr></tbody=
+></table><p class=3D"f6 color-bg-subtle" style=3D"box-sizing: border-box; m=
+argin-top: 0; margin-bottom: 10px; color: #6a737d !important; font-size: 12=
+px !important; font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helve=
+tica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji !important">GitHub, =
+Inc. =E3=83=BB Colin P Kelly Jr Street =E3=83=BB San Francisco, CA 94107</p=
+></td></tr></table></center></td></tr></table><div style=3D"display: none; =
+white-space: nowrap; box-sizing: border-box; font: 15px/0 apple-system, Bli=
+nkMacSystemFont, Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Sego=
+e UI Emoji"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br=
+><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div></body></htm=
+l><p style=3D"font-size:small;-webkit-text-size-adjust:none;color:#666;">&m=
+dash;<br><a href=3D"https://github.com/organizations/PICT-ACM-Student-Chapt=
+er/settings/member_feature_requests">View it on GitHub</a> or <a href=3D"ht=
+tps://github.com/notifications/unsubscribe-auth/AYAARKHKWKJLSLATNN3ONKDZRTP=
+J7A5HORZGSZ3HMVZLIY3POBUWY33UL5TG64S7MJ2XG2LOMVZXHJTUN5YGSY3TSGBKI5DZOBS2Y3=
+3SM5QW42L2MF2GS33OUV3GC3DVMWUDOMBQGI2DSNZQVRZXKYTKMVRXIX3UPFYGLWQAEJGWK3LCM=
+VZEMZLBOR2XEZKSMVYXKZLTOQ5DUTTPORUWM2LDMF2GS33O">unsubscribe</a>.<br>You ar=
+e receiving this email because you are subscribed to this thread.</p><p sty=
+le=3D"font-size:small;-webkit-text-size-adjust:none;color:#666;">Triage not=
+ifications on the go with GitHub Mobile for <a href=3D"https://apps.apple.c=
+om/app/apple-store/id1477376905?ct=3Dnotification-email&amp;mt=3D8&amp;pt=
+=3D524675">iOS</a> or <a href=3D"https://play.google.com/store/apps/details=
+?id=3Dcom.github.android&amp;referrer=3Dutm_campaign%3Dnotification-email%2=
+6utm_medium%3Demail%26utm_source%3Dgithub">Android</a>.</p><div style=3D"di=
+splay:none; white-space:nowrap; font:15px courier; line-height:0;">&nbsp; &=
+nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;=
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbs=
+p; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</div><script type=3D"ap=
+plication/ld+json">
+        [{
+            "@context": "http://schema.org",
+            "@type": "EmailMessage",
+            "potentialAction": {
+                "@type": "ViewAction",
+                "target": "https://github.com/organizations/PICT-ACM-Studen=
+t-Chapter/settings/member_feature_requests",
+                "url": "https://github.com/organizations/PICT-ACM-Student-C=
+hapter/settings/member_feature_requests",
+                "name": "View on GitHub"
+            },
+            "description": "View on GitHub",
+            "publisher": {
+            "@type": "Organization",
+            "name": "GitHub",
+            "url": "https://github.com"
+        }
+            }]
+    </script></body></html>
+--part_18629b6ad927566b6a7ca398ab668638bc99e2e8204b8cc064d37a2c7428c7f0--

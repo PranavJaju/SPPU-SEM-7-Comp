@@ -1,0 +1,4 @@
+2024-10-04 11:29:35,024 DEBUG Debug message
+2024-10-04 11:29:35,024 INFO Informative message
+2024-10-04 11:29:35,024 ERROR Error message
+2024-10-04 11:29:35,025 INFO This is a log message.
